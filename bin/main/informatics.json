@@ -1,0 +1,555 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Informatics API",
+    "description" : "This is an API for Informatics"
+  },
+  "schemes" : [ "http" ],
+  "host" : "localhost:8080",
+  "definitions" : {
+    "module" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "code" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "semester" : {
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 10
+        },
+        "core" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "lecture" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "week" : {
+          "type" : "integer"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        }
+      }
+    },
+    "convenor" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "position" : {
+          "type" : "string",
+          "enum" : [ "GTA", "Lecturer", "Professor" ]
+        },
+        "office" : {
+          "type" : "string"
+        }
+      }
+    }
+  },
+  "paths" : {
+    "/modules" : {
+      "post" : {
+        "summary" : "Add a new module.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "tags" : [ "Module" ],
+        "parameters" : [ {
+          "name" : "module",
+          "in" : "body",
+          "required" : true,
+          "description" : "A module object.",
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "code" : {
+                "type" : "string"
+              },
+              "title" : {
+                "type" : "string"
+              },
+              "semester" : {
+                "type" : "integer",
+                "minimum" : 1,
+                "maximum" : 10
+              },
+              "core" : {
+                "type" : "boolean"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "New module created.",
+            "headers" : {
+              "location" : {
+                "type" : "string",
+                "description" : "The url of the new module."
+              }
+            }
+          },
+          "409" : {
+            "description" : "A module with that ID already exists."
+          }
+        }
+      },
+      "get" : {
+        "summary" : "Returns all modules.",
+        "produces" : [ "application/json" ],
+        "tags" : [ "Module" ],
+        "responses" : {
+          "200" : {
+            "description" : "List of modules returned.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/module"
+              }
+            }
+          },
+          "404" : {
+            "description" : "No modules found."
+          }
+        }
+      }
+    },
+    "/modules/{moduleId}" : {
+      "get" : {
+        "summary" : "Returns a module by ID.",
+        "produces" : [ "application/json" ],
+        "tags" : [ "Module" ],
+        "parameters" : [ {
+          "name" : "moduleId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the module to return.",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A module object.",
+            "schema" : {
+              "$ref" : "#/definitions/module"
+            }
+          },
+          "404" : {
+            "description" : "A module with the specified ID was not found."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Updates a module by ID.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "tags" : [ "Module" ],
+        "parameters" : [ {
+          "name" : "moduleId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the module to update.",
+          "type" : "integer"
+        }, {
+          "name" : "module",
+          "in" : "body",
+          "required" : true,
+          "description" : "A module object.",
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "code" : {
+                "type" : "string"
+              },
+              "title" : {
+                "type" : "string"
+              },
+              "semester" : {
+                "type" : "integer",
+                "minimum" : 1,
+                "maximum" : 10
+              },
+              "core" : {
+                "type" : "boolean"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Module updated.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/module"
+              }
+            }
+          },
+          "404" : {
+            "description" : "A module with the specified ID was not found."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes an existing module.",
+        "tags" : [ "Module" ],
+        "parameters" : [ {
+          "name" : "moduleId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the module to delete.",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Module has been deleted."
+          },
+          "404" : {
+            "description" : "A module with the specified ID was not found."
+          }
+        }
+      }
+    },
+    "/modules/{moduleId}/lectures" : {
+      "post" : {
+        "summary" : "Add a new lecture.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "tags" : [ "Lecture" ],
+        "parameters" : [ {
+          "name" : "moduleId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the module the lecture belongs to.",
+          "type" : "integer"
+        }, {
+          "name" : "lecture",
+          "in" : "body",
+          "required" : true,
+          "description" : "A lecture object.",
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "week" : {
+                "type" : "integer"
+              },
+              "title" : {
+                "type" : "string"
+              },
+              "url" : {
+                "type" : "string"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "New lecture created."
+          },
+          "409" : {
+            "description" : "A lecture with that ID already exists."
+          }
+        }
+      },
+      "get" : {
+        "summary" : "Returns all lectures belonging to module.",
+        "produces" : [ "application/json" ],
+        "tags" : [ "Lecture" ],
+        "parameters" : [ {
+          "name" : "moduleId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the module the lecture belongs to.",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of lectures returned.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/lecture"
+              }
+            }
+          },
+          "404" : {
+            "description" : "No lectures found."
+          }
+        }
+      }
+    },
+    "/modules/{moduleId}/lectures/{lectureId}" : {
+      "get" : {
+        "summary" : "Returns a lecture by ID.",
+        "produces" : [ "application/json" ],
+        "tags" : [ "Lecture" ],
+        "parameters" : [ {
+          "name" : "moduleId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the module the lecture belongs to.",
+          "type" : "integer"
+        }, {
+          "name" : "lectureId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the lecture to return.",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A lecture object.",
+            "schema" : {
+              "$ref" : "#/definitions/lecture"
+            }
+          },
+          "404" : {
+            "description" : "A lecture with the specified ID was not found."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Updates a lecture by ID.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "tags" : [ "Lecture" ],
+        "parameters" : [ {
+          "name" : "moduleId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the module the lecture belongs to.",
+          "type" : "integer"
+        }, {
+          "name" : "lectureId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the lecture to update.",
+          "type" : "integer"
+        }, {
+          "name" : "lecture",
+          "in" : "body",
+          "required" : true,
+          "description" : "A lecture object.",
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "week" : {
+                "type" : "integer"
+              },
+              "title" : {
+                "type" : "string"
+              },
+              "url" : {
+                "type" : "string"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Lecture updated.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/lecture"
+              }
+            }
+          },
+          "404" : {
+            "description" : "A lecture with the specified ID was not found."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes an existing lecture.",
+        "tags" : [ "Lecture" ],
+        "parameters" : [ {
+          "name" : "moduleId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the module the lecture belongs to.",
+          "type" : "integer"
+        }, {
+          "name" : "lectureId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the lecture to delete.",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Lecture has been deleted."
+          },
+          "404" : {
+            "description" : "A lecture with the specified ID was not found."
+          }
+        }
+      }
+    },
+    "/convenors" : {
+      "post" : {
+        "summary" : "Add a new convenor.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "tags" : [ "Convenor" ],
+        "parameters" : [ {
+          "name" : "convenor",
+          "in" : "body",
+          "required" : true,
+          "description" : "A convenor object.",
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "name" : {
+                "type" : "string"
+              },
+              "position" : {
+                "type" : "string",
+                "enum" : [ "GTA", "Lecturer", "Professor" ]
+              },
+              "office" : {
+                "type" : "string"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "New convenor created."
+          },
+          "409" : {
+            "description" : "A convenor with that ID already exists."
+          }
+        }
+      },
+      "get" : {
+        "summary" : "Returns all convenors.",
+        "produces" : [ "application/json" ],
+        "tags" : [ "Convenor" ],
+        "responses" : {
+          "200" : {
+            "description" : "List of convenors returned.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/convenor"
+              }
+            }
+          },
+          "404" : {
+            "description" : "No convenors found."
+          }
+        }
+      }
+    },
+    "/convenors/{convenorId}" : {
+      "get" : {
+        "summary" : "Returns a convenor by ID.",
+        "produces" : [ "application/json" ],
+        "tags" : [ "Convenor" ],
+        "parameters" : [ {
+          "name" : "convenorId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the convenor to return.",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A convenor object.",
+            "schema" : {
+              "$ref" : "#/definitions/convenor"
+            }
+          },
+          "404" : {
+            "description" : "A convenor with the specified ID was not found."
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Updates a convenor by ID.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "tags" : [ "Convenor" ],
+        "parameters" : [ {
+          "name" : "convenorId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the convenor to update.",
+          "type" : "integer"
+        }, {
+          "name" : "convenor",
+          "in" : "body",
+          "required" : true,
+          "description" : "A convenor object.",
+          "schema" : {
+            "type" : "object",
+            "properties" : {
+              "name" : {
+                "type" : "string"
+              },
+              "position" : {
+                "type" : "string",
+                "enum" : [ "GTA", "Lecturer", "Professor" ]
+              },
+              "office" : {
+                "type" : "string"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Convenor updated.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/convenor"
+              }
+            }
+          },
+          "404" : {
+            "description" : "A convenor with the specified ID was not found."
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes an existing convenor.",
+        "tags" : [ "Convenor" ],
+        "parameters" : [ {
+          "name" : "convenorId",
+          "in" : "path",
+          "required" : true,
+          "description" : "The ID of the convenor to delete.",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Convenor has been deleted."
+          },
+          "404" : {
+            "description" : "A convenor with the specified ID was not found."
+          }
+        }
+      }
+    }
+  }
+}

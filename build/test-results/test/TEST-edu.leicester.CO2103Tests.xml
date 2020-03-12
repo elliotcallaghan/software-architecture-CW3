@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.leicester.CO2103Tests" tests="30" skipped="0" failures="0" errors="0" timestamp="2020-02-26T15:10:29" hostname="DESKTOP-OJLOO0C" time="1.599">
+  <properties/>
+  <testcase name="testGetAllConvenorsNotFound()" classname="edu.leicester.CO2103Tests" time="0.221"/>
+  <testcase name="testGetAllConvenors()" classname="edu.leicester.CO2103Tests" time="0.134"/>
+  <testcase name="testDeleteConvenorNotFound()" classname="edu.leicester.CO2103Tests" time="0.042"/>
+  <testcase name="testGetAllModulesNotFound()" classname="edu.leicester.CO2103Tests" time="0.024"/>
+  <testcase name="testPutConvenor()" classname="edu.leicester.CO2103Tests" time="0.114"/>
+  <testcase name="testGetConvenorNotFound()" classname="edu.leicester.CO2103Tests" time="0.025"/>
+  <testcase name="testPostConvenorConflict()" classname="edu.leicester.CO2103Tests" time="0.061"/>
+  <testcase name="testPutLectureNotFound()" classname="edu.leicester.CO2103Tests" time="0.064"/>
+  <testcase name="testPutModuleNotFound()" classname="edu.leicester.CO2103Tests" time="0.025"/>
+  <testcase name="testGetLectureNotFound()" classname="edu.leicester.CO2103Tests" time="0.04"/>
+  <testcase name="testPutLecture()" classname="edu.leicester.CO2103Tests" time="0.08"/>
+  <testcase name="testPostConvenor()" classname="edu.leicester.CO2103Tests" time="0.041"/>
+  <testcase name="testGetModuleNotFound()" classname="edu.leicester.CO2103Tests" time="0.02"/>
+  <testcase name="testPostLectureConflict()" classname="edu.leicester.CO2103Tests" time="0.055"/>
+  <testcase name="testGetAllLectures()" classname="edu.leicester.CO2103Tests" time="0.053"/>
+  <testcase name="testGetAllModules()" classname="edu.leicester.CO2103Tests" time="0.04"/>
+  <testcase name="testPostLecture()" classname="edu.leicester.CO2103Tests" time="0.055"/>
+  <testcase name="testPutModule()" classname="edu.leicester.CO2103Tests" time="0.041"/>
+  <testcase name="testDeleteModule()" classname="edu.leicester.CO2103Tests" time="0.052"/>
+  <testcase name="testDeleteModuleNotFound()" classname="edu.leicester.CO2103Tests" time="0.015"/>
+  <testcase name="testGetLecture()" classname="edu.leicester.CO2103Tests" time="0.043"/>
+  <testcase name="testDeleteConvenor()" classname="edu.leicester.CO2103Tests" time="0.045"/>
+  <testcase name="testPostModule()" classname="edu.leicester.CO2103Tests" time="0.04"/>
+  <testcase name="testGetConvenor()" classname="edu.leicester.CO2103Tests" time="0.032"/>
+  <testcase name="testGetAllLecturesNotFound()" classname="edu.leicester.CO2103Tests" time="0.03"/>
+  <testcase name="testPutConvenorNotFound()" classname="edu.leicester.CO2103Tests" time="0.016"/>
+  <testcase name="testGetModule()" classname="edu.leicester.CO2103Tests" time="0.028"/>
+  <testcase name="testDeleteLecture()" classname="edu.leicester.CO2103Tests" time="0.062"/>
+  <testcase name="testDeleteLectureNotFound()" classname="edu.leicester.CO2103Tests" time="0.032"/>
+  <testcase name="testPostModuleConflict()" classname="edu.leicester.CO2103Tests" time="0.04"/>
+  <system-out><![CDATA[2020-02-26 15:10:27.434  INFO 20484 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [edu.leicester.CO2103Tests], using SpringBootContextLoader
+2020-02-26 15:10:27.435  INFO 20484 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [edu.leicester.CO2103Tests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-02-26 15:10:27.436  INFO 20484 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [edu.leicester.CO2103Tests]: CO2103Tests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-02-26 15:10:27.446  INFO 20484 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration edu.leicester.Co2103Cw3Application for test class edu.leicester.CO2103Tests
+2020-02-26 15:10:27.448  INFO 20484 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-02-26 15:10:27.448  INFO 20484 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1be2fb19, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@22b9cbe0, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6965d980, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@31f1ce23, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3dc7d137, org.springframework.test.context.transaction.TransactionalTestExecutionListener@51cdeba4, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@162391c4, org.springframework.test.context.event.EventPublishingTestExecutionListener@299cc5f5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2a51e798, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@14ffa9bd, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1e58a757, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@51246a04, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@746c2a9f]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.4.RELEASE)
+
+2020-02-26 15:10:27.480  INFO 20484 --- [    Test worker] edu.leicester.CO2103Tests                : Starting CO2103Tests on DESKTOP-OJLOO0C with PID 20484 (started by calla in C:\Users\calla\OneDrive\Documents\University Work\Year 2\Software Architecture\SEM2\Homework 3\co2103-cw3)
+2020-02-26 15:10:27.481  INFO 20484 --- [    Test worker] edu.leicester.CO2103Tests                : No active profile set, falling back to default profiles: default
+2020-02-26 15:10:27.690  INFO 20484 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-02-26 15:10:27.707  INFO 20484 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 3 JPA repository interfaces.
+2020-02-26 15:10:27.787  INFO 20484 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-26 15:10:27.868  INFO 20484 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-26 15:10:27.894  INFO 20484 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-02-26 15:10:28.359  INFO 20484 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-26 15:10:28.359  INFO 20484 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-02-26 15:10:28.583  WARN 20484 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-02-26 15:10:28.705  INFO 20484 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-26 15:10:28.989  INFO 20484 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-02-26 15:10:28.989  INFO 20484 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-02-26 15:10:29.006  INFO 20484 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 17 ms
+2020-02-26 15:10:29.013  INFO 20484 --- [    Test worker] edu.leicester.CO2103Tests                : Started CO2103Tests in 1.561 seconds (JVM running for 8.686)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /convenors
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#listAllConvenors()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"id":1,"name":null,"position":null,"office":null}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /convenors/50
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#deleteConvenor(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"47"]
+     Content type = text/plain;charset=UTF-8
+             Body = A convenor with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /convenors/2
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"56"]
+             Body = {"id":0,"name":"New Name","position":null,"office":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#updateConvenor(int, Convenor)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":2,"name":"New Name","position":null,"office":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /convenors/50
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#getConvenor(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"47"]
+     Content type = text/plain;charset=UTF-8
+             Body = A convenor with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /convenors
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"50"]
+             Body = {"id":3,"name":null,"position":null,"office":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#createConvenor(Convenor, UriComponentsBuilder)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 409
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"39"]
+     Content type = text/plain;charset=UTF-8
+             Body = A convenor with that ID already exists.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /modules/1/lectures/50
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"48"]
+             Body = {"id":0,"week":0,"title":"New Title","url":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#updateLecture(int, int, Lecture)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"46"]
+     Content type = text/plain;charset=UTF-8
+             Body = A lecture with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /modules/50
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"98"]
+             Body = {"id":0,"code":null,"title":"New Title","semester":1,"core":false,"convenor":null,"lectures":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#updateModule(int, Module)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"45"]
+     Content type = text/plain;charset=UTF-8
+             Body = A module with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /modules/2/lectures/50
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#getLecture(int, int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"46"]
+     Content type = text/plain;charset=UTF-8
+             Body = A lecture with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /modules/3/lectures/1
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"48"]
+             Body = {"id":0,"week":0,"title":"New Title","url":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#updateLecture(int, int, Lecture)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":1,"week":0,"title":"New Title","url":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /convenors
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"50"]
+             Body = {"id":0,"name":null,"position":null,"office":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#createConvenor(Convenor, UriComponentsBuilder)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Location:"http://localhost/convenors/4", Content-Type:"application/json"]
+     Content type = application/json
+             Body = 
+    Forwarded URL = null
+   Redirected URL = http://localhost/convenors/4
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /modules/50
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#getModule(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"45"]
+     Content type = text/plain;charset=UTF-8
+             Body = A module with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /modules/4/lectures
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"41"]
+             Body = {"id":2,"week":0,"title":null,"url":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#createLecture(int, Lecture, UriComponentsBuilder)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 409
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"38"]
+     Content type = text/plain;charset=UTF-8
+             Body = A lecture with that ID already exists.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /modules/5/lectures
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#listAllLectures(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"id":3,"week":0,"title":null,"url":null}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /modules
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#listAllModules()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"id":1,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":[]},{"id":2,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":[]},{"id":3,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":[{"id":1,"week":0,"title":"New Title","url":null}]},{"id":4,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":[]},{"id":5,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":[{"id":3,"week":0,"title":null,"url":null}]},{"id":6,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":[]}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /modules/7/lectures
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"41"]
+             Body = {"id":0,"week":0,"title":null,"url":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#createLecture(int, Lecture, UriComponentsBuilder)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Location:"http://localhost/modules/7/lectures/4", Content-Type:"application/json"]
+     Content type = application/json
+             Body = 
+    Forwarded URL = null
+   Redirected URL = http://localhost/modules/7/lectures/4
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /modules/8
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"98"]
+             Body = {"id":0,"code":null,"title":"New Title","semester":1,"core":false,"convenor":null,"lectures":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#updateModule(int, Module)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":8,"code":null,"title":"New Title","semester":1,"core":false,"convenor":null,"lectures":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /modules/9
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#deleteModule(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"24"]
+     Content type = text/plain;charset=UTF-8
+             Body = Module has been deleted.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /modules/50
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#deleteModule(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"45"]
+     Content type = text/plain;charset=UTF-8
+             Body = A module with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /modules/10/lectures/5
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#getLecture(int, int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":5,"week":0,"title":null,"url":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /convenors/5
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#deleteConvenor(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"26"]
+     Content type = text/plain;charset=UTF-8
+             Body = Convenor has been deleted.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /modules
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"91"]
+             Body = {"id":0,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#createModule(Module, UriComponentsBuilder)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Location:"http://localhost/modules/11", Content-Type:"application/json"]
+     Content type = application/json
+             Body = 
+    Forwarded URL = null
+   Redirected URL = http://localhost/modules/11
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /convenors/6
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#getConvenor(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":6,"name":null,"position":null,"office":null}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /convenors/50
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"56"]
+             Body = {"id":0,"name":"New Name","position":null,"office":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ConvenorController
+           Method = edu.leicester.controller.ConvenorController#updateConvenor(int, Convenor)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"47"]
+     Content type = text/plain;charset=UTF-8
+             Body = A convenor with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /modules/13
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#getModule(int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"id":13,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":[]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /modules/14/lectures/6
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#deleteLecture(int, int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"25"]
+     Content type = text/plain;charset=UTF-8
+             Body = Lecture has been deleted.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /modules/15/lectures/50
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.LectureController
+           Method = edu.leicester.controller.LectureController#deleteLecture(int, int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 404
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"46"]
+     Content type = text/plain;charset=UTF-8
+             Body = A lecture with the specified ID was not found.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /modules
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"92"]
+             Body = {"id":16,"code":null,"title":null,"semester":1,"core":false,"convenor":null,"lectures":null}
+    Session Attrs = {}
+
+Handler:
+             Type = edu.leicester.controller.ModuleController
+           Method = edu.leicester.controller.ModuleController#createModule(Module, UriComponentsBuilder)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 409
+    Error message = null
+          Headers = [Content-Type:"text/plain;charset=UTF-8", Content-Length:"37"]
+     Content type = text/plain;charset=UTF-8
+             Body = A module with that ID already exists.
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
